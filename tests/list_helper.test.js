@@ -87,8 +87,12 @@ describe("total likes", () => {
 describe("favourite blog", () => {
 	test("return format is correct", () => {
 		const result = listHelper.favoriteBlog(listWithOneBlog);
-		console.log(result);
-		expect(result).toHaveProperty("title", "author", "likes");
+		expect(result).toHaveProperty("title");
+		expect(result).toHaveProperty("author");
+		expect(result).toHaveProperty("likes");
+		expect(result).not.toHaveProperty("_id");
+		expect(result).not.toHaveProperty("url");
+		expect(result).not.toHaveProperty("__v");
 	});
 
 	test("of no list", () => {
@@ -96,8 +100,38 @@ describe("favourite blog", () => {
 		expect(result).toEqual({});
 	});
 
-	test("of an existing list", () => {
+	test("of an existing list which returns 1 result", () => {
 		const result = listHelper.favoriteBlog(listWithManyBlog);
-		expect(result).toEqual(listWithManyBlog[2]);
+		const formatExpected = {
+			title: listWithManyBlog[2].title,
+			author: listWithManyBlog[2].author,
+			likes: listWithManyBlog[2].likes,
+		};
+		expect(result).toEqual(formatExpected);
+	});
+});
+
+describe("most blogs", () => {
+	test("return format is correct", () => {
+		const result = listHelper.mostBlogs(listWithOneBlog);
+		expect(result).toHaveProperty("author");
+		expect(result).toHaveProperty("blogs");
+		expect(result).not.toHaveProperty("_id");
+		expect(result).not.toHaveProperty("url");
+		expect(result).not.toHaveProperty("__v");
+	});
+
+	test("of no list", () => {
+		const result = listHelper.mostBlogs(listWithNoBlog);
+		expect(result).toEqual({});
+	});
+
+	test("of an existing list is exact", () => {
+		const result = listHelper.mostBlogs(listWithManyBlog);
+		const formatExpected = {
+			author: "Robert C. Martin",
+			blogs: 3,
+		};
+		expect(result).toEqual(formatExpected);
 	});
 });

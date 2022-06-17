@@ -51,12 +51,42 @@ const mostBlogs = (blogs) => {
 			formatResult.blogs = hashMap[idx].blogs;
 		}
 	});
-	return formatResult.author === "" ? {} : formatResult;
+	return formatResult.blogs === -1 ? {} : formatResult;
 };
 
+const mostLikes = (blogs) => {
+	const hashMap = [];
+	let formatResult = {
+		author: "",
+		likes: -1,
+	};
+
+	blogs.forEach((blog) => {
+		let idx = -1;
+		const exist = hashMap.find((myList, index) => {
+			idx = index;
+			return blog.author === myList.author;
+		});
+		if (!exist || hashMap.length === 0) {
+			hashMap.push({
+				author: blog.author,
+				likes: blog.likes,
+			});
+			idx = hashMap.length - 1;
+		} else {
+			hashMap[idx].likes += blog.likes;
+		}
+		if (hashMap[idx].likes > formatResult.likes) {
+			formatResult.author = hashMap[idx].author;
+			formatResult.likes = hashMap[idx].likes;
+		}
+	});
+	return formatResult.likes === -1 ? {} : formatResult;
+};
 module.exports = {
 	dummy,
 	totalLikes,
 	favoriteBlog,
 	mostBlogs,
+	mostLikes,
 };

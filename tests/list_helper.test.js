@@ -135,3 +135,28 @@ describe("most blogs", () => {
 		expect(result).toEqual(formatExpected);
 	});
 });
+
+describe("most likes", () => {
+	test("return format is correct", () => {
+		const result = listHelper.mostLikes(listWithOneBlog);
+		expect(result).toHaveProperty("author");
+		expect(result).toHaveProperty("likes");
+		expect(result).not.toHaveProperty("_id");
+		expect(result).not.toHaveProperty("url");
+		expect(result).not.toHaveProperty("__v");
+	});
+
+	test("of no list", () => {
+		const result = listHelper.mostLikes(listWithNoBlog);
+		expect(result).toEqual({});
+	});
+
+	test("of an existing list is exact", () => {
+		const result = listHelper.mostLikes(listWithManyBlog);
+		const formatExpected = {
+			author: "Edsger W. Dijkstra",
+			likes: 17,
+		};
+		expect(result).toEqual(formatExpected);
+	});
+});

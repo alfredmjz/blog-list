@@ -1,0 +1,14 @@
+###
+GET http://localhost:3003/api/blogs
+
+###
+POST http://localhost:3003/api/blogs HTTP/1.1
+content-type: application/json
+
+{
+  "userId": "62ba974b9fb4adbc9635a5cd",
+  "title":"Things I don't know as of 2018",
+  "author":"Dan Abramov",
+  "url":"http://www.whatdoyouknow.html",
+  "likes": 0
+}

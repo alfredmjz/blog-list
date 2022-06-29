@@ -4,12 +4,13 @@ GET http://localhost:3003/api/blogs
 ###
 POST http://localhost:3003/api/blogs HTTP/1.1
 Content-type: application/json
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QiLCJpZCI6IjYyYmJkM2NhN2JkNWQ4MTUzY2EwZTU3YSIsImlhdCI6MTY1NjQ3NzU1Nn0.HUD0cEEC01SonJVc12E-QTCgeahRrEfRlygRklzQdpk
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QiLCJpZCI6IjYyYmJkM2NhN2JkNWQ4MTUzY2EwZTU3YSIsImlhdCI6MTY1NjUzMzA5MSwiZXhwIjoxNjU2NTM2NjkxfQ.flMTS9xA6HMgO4kyiyI_a13PKHj5l_ptK0ZuKiV0uUA
 
 {
-  "userId": "62ba974b9fb4adbc9635a5cd",
+  "userId": "62bbd3ca7bd5d8153ca0e57a",
   "title":"Things I don't know as of 2018",
   "author":"Dan Abramov",
   "url":"http://www.whatdoyouknow.html",
   "likes": 0
 }
+

@@ -26,16 +26,14 @@ blogsRouter.post("/", async (request, response, next) => {
 			url: request.body.url,
 			likes: request.body.likes,
 		});
-
 		if (!blog.title || !blog.url) {
 			response.status(400).end();
-		} else {
-			const result = await blog.save();
-			user.blogs = user.blogs.concat(result._id);
-			await user.save();
-
-			response.status(201).json(result);
 		}
+		const result = await blog.save();
+		user.blogs = user.blogs.concat(result._id);
+		await user.save();
+
+		response.status(201).json(result);
 	} catch (err) {
 		next(err);
 	}
@@ -43,8 +41,16 @@ blogsRouter.post("/", async (request, response, next) => {
 
 blogsRouter.delete("/:id", async (request, response, next) => {
 	try {
-		await Blog.deleteOne({ _id: request.params.id });
-		response.status(204).end();
+		const id = request.params.id;
+		const blog = await Blog.findById(id);
+
+		if (blog.user.toString() === request.user.toString()) {
+			await Blog.deleteOne({ _id: id });
+
+			response.status(204).end();
+		} else {
+			response.status(401).json({ error: "Only blog owner may delete this post" });
+		}
 	} catch (err) {
 		next(err);
 	}
@@ -59,7 +65,6 @@ blogsRouter.put("/:id", async (request, response, next) => {
 			url: request.body.url,
 			likes: request.body.likes || thisBlog.likes,
 		};
-		// await Blog.findByIdAndUpdate(request.params.id, updatedBlog, { new: true });
 		await Blog.updateOne(thisBlog, updatedBlog);
 		response.status(200).json(updatedBlog);
 	} catch (err) {

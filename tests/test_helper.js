@@ -7,6 +7,7 @@ const initialBlogs = [
 		author: "Michael Chan",
 		url: "https://reactpatterns.com/",
 		likes: 7,
+		user: "62bcc5bd5f5f5bdf01007b89",
 		__v: 0,
 	},
 	{
@@ -15,6 +16,7 @@ const initialBlogs = [
 		author: "Edsger W. Dijkstra",
 		url: "http://www.u.arizona.edu/~rubinson/copyright_violations/Go_To_Considered_Harmful.html",
 		likes: 5,
+		user: "62bcc5bd5f5f5bdf01007b89",
 		__v: 0,
 	},
 	{
@@ -23,6 +25,7 @@ const initialBlogs = [
 		author: "Edsger W. Dijkstra",
 		url: "http://www.cs.utexas.edu/~EWD/transcriptions/EWD08xx/EWD808.html",
 		likes: 12,
+		user: "62bcc5fb5f5f5bdf01007b8f",
 		__v: 0,
 	},
 	{
@@ -31,6 +34,7 @@ const initialBlogs = [
 		author: "Robert C. Martin",
 		url: "http://blog.cleancoder.com/uncle-bob/2017/05/05/TestDefinitions.htmll",
 		likes: 10,
+		user: "62bcc5fb5f5f5bdf01007b8f",
 		__v: 0,
 	},
 	{
@@ -39,6 +43,7 @@ const initialBlogs = [
 		author: "Robert C. Martin",
 		url: "http://blog.cleancoder.com/uncle-bob/2017/03/03/TDD-Harms-Architecture.html",
 		likes: 0,
+		user: "62bcc5fb5f5f5bdf01007b8f",
 		__v: 0,
 	},
 	{
@@ -47,6 +52,7 @@ const initialBlogs = [
 		author: "Robert C. Martin",
 		url: "http://blog.cleancoder.com/uncle-bob/2016/05/01/TypeWars.html",
 		likes: 2,
+		user: "62bcc5fd5f5f5bdf01007b92",
 		__v: 0,
 	},
 ];
@@ -55,17 +61,17 @@ const initialUsers = [
 	{
 		username: "root",
 		name: "Superuser",
-		password: "salainen",
+		password: "root",
 	},
 	{
 		username: "hellas",
 		name: "Arto Hellas",
-		password: "abadpassword",
+		password: "hellas",
 	},
 	{
 		username: "mlukkai",
 		name: "Matti Luukkainen",
-		password: "avalidpassowrd",
+		password: "mlukkai",
 	},
 ];
 

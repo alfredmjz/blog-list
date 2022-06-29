@@ -42,9 +42,16 @@ const tokenExtractor = (request, response, next) => {
 	next();
 };
 
+const userExtractor = (request, response, next) => {
+	request.user = request.body.user;
+
+	next();
+};
+
 module.exports = {
 	requestLogger,
 	unknownEndpoint,
 	errorHandler,
 	tokenExtractor,
+	userExtractor,
 };

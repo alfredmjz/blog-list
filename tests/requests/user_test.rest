@@ -6,7 +6,28 @@ POST http://localhost:3003/api/users HTTP/1.1
 content-type: application/json
 
 {
-    "username": "test",
+    "username": "root",
     "name": "Superuser",
-    "password": "12345"
+    "password": "root"
 }
+
+###
+POST http://localhost:3003/api/users HTTP/1.1
+content-type: application/json
+
+{
+    "username": "hellas",
+    "name" : "Arto Hellas",
+    "password": "hellas"
+}
+
+###
+POST http://localhost:3003/api/users HTTP/1.1
+content-type: application/json
+
+{
+    "username": "mluukkai",
+    "name": "Matti Luukkainen",
+    "password": "mluukkai"
+}
+

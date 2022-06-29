@@ -3,9 +3,28 @@ POST http://localhost:3003/api/login HTTP/1.1
 content-type: application/json
 
 {
-    "username": "test",
-    "password": "12345"
+    "username": "root",
+    "password": "root"
 }
+
+###
+POST http://localhost:3003/api/login HTTP/1.1
+content-type: application/json
+
+{
+    "username": "hellas",
+    "password": "hellas"
+}
+
+###
+POST http://localhost:3003/api/login HTTP/1.1
+content-type: application/json
+
+{
+    "username": "mluukkai",
+    "password": "mluukkai"
+}
+
 
 ###
 POST http://localhost:3003/api/login HTTP/1.1

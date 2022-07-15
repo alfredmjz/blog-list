@@ -5,7 +5,7 @@ const User = require("../models/user");
 
 blogsRouter.get("/", async (request, response, next) => {
 	try {
-		const blogs = await Blog.find({}).populate("user", { username: 1, name: 1 });
+		const blogs = await Blog.find({});
 		response.json(blogs);
 	} catch (err) {
 		next(err);
@@ -50,9 +50,8 @@ blogsRouter.delete("/:id", async (request, response, next) => {
 
 		const id = request.params.id;
 		const blog = await Blog.findById(id);
-		if (blog.id.toString() === request.body.id.toString()) {
+		if (blog.user.toString() === request.body.id.toString()) {
 			await Blog.deleteOne({ _id: id });
-
 			response.status(204).end();
 		} else {
 			response.status(401).json({ error: "Only blog owner may delete this post" });

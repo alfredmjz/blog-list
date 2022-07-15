@@ -4,20 +4,20 @@ GET http://localhost:3003/api/blogs
 ###
 POST http://localhost:3003/api/blogs HTTP/1.1
 Content-type: application/json
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImhlbGxhcyIsImlkIjoiNjJiY2M1ZmI1ZjVmNWJkZjAxMDA3YjhmIiwiaWF0IjoxNjU2NTM4NjgyLCJleHAiOjE2NTY1NDIyODJ9.cu8IWZ7h3D36A13GjzmQwC8fivYk3QSC5CI2VFq2SJI
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJvb3QiLCJpZCI6IjYyZDFlOTA3M2JmYzZmOGNiZTg0ZGNhNCIsImlhdCI6MTY1NzkyNTE4NywiZXhwIjoxNjU3OTI4Nzg3fQ.lGkWGXsl88zCTVl8jZo43k2npbddGBsrwvs2uek3cBQ
 
 {
-  "user": "62bcc5fb5f5f5bdf01007b8f",
-  "title":"Things Hellas don't know as of 2018",
-  "author":"Ross Geller",
-  "url":"http://www.whatdoyouknow.html",
+  "user": "62d1e9073bfc6f8cbe84dca4",
+  "title":"Things people should be eating",
+  "author":"Namas Swaski",
+  "url":"http://www.greenfood.com",
   "likes": 0
 }
 
 ###
 POST http://localhost:3003/api/blogs/ HTTP/1.1
 Content-type: application/json
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1sdXVra2FpIiwiaWQiOiI2MmJjYzVmZDVmNWY1YmRmMDEwMDdiOTIiLCJpYXQiOjE2NTY1Mzg2OTUsImV4cCI6MTY1NjU0MjI5NX0.D299oaZ16J-ii14DUd-LwN7JuHqhblH_3v2z5po5gJU
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJvb3QiLCJpZCI6IjYyZDFlOTA3M2JmYzZmOGNiZTg0ZGNhNCIsImlhdCI6MTY1NzkyNTE4NywiZXhwIjoxNjU3OTI4Nzg3fQ.lGkWGXsl88zCTVl8jZo43k2npbddGBsrwvs2uek3cBQ
 
 {
   "user": "62bcc5fd5f5f5bdf01007b92",
@@ -30,7 +30,7 @@ Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1sd
 ###
 DELETE http://localhost:3003/api/blogs/62bcb7b4f4ce63da4a247997 HTTP/1.1
 Content-type: application/json
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1sdXVra2FpIiwiaWQiOiI2MmJjYzVmZDVmNWY1YmRmMDEwMDdiOTIiLCJpYXQiOjE2NTY1Mzg2OTUsImV4cCI6MTY1NjU0MjI5NX0.D299oaZ16J-ii14DUd-LwN7JuHqhblH_3v2z5po5gJU
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJvb3QiLCJpZCI6IjYyZDFlOTA3M2JmYzZmOGNiZTg0ZGNhNCIsImlhdCI6MTY1NzkyNTE4NywiZXhwIjoxNjU3OTI4Nzg3fQ.lGkWGXsl88zCTVl8jZo43k2npbddGBsrwvs2uek3cBQ
 
 {
   "user": "62bcc5fd5f5f5bdf01007b92",

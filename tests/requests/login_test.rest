@@ -22,7 +22,7 @@ content-type: application/json
 
 {
     "username": "mluukkai",
-    "password": "mluukkai"
+    "password": "salainen"
 }
 
 

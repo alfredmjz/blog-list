@@ -4,39 +4,74 @@ GET http://localhost:3003/api/blogs
 ###
 POST http://localhost:3003/api/blogs HTTP/1.1
 Content-type: application/json
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJvb3QiLCJpZCI6IjYyZDFlOTA3M2JmYzZmOGNiZTg0ZGNhNCIsImlhdCI6MTY1NzkyNTE4NywiZXhwIjoxNjU3OTI4Nzg3fQ.lGkWGXsl88zCTVl8jZo43k2npbddGBsrwvs2uek3cBQ
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1sdXVra2FpIiwiaWQiOiI2MmQ0N2E5NWZlZmU4ZTFjY2U2MThiZDYiLCJpYXQiOjE2NjQ4MzE4OTMsImV4cCI6MTY2NDgzNTQ5M30.IalLwfHbUo401TFG1A3LAxEHsc7PCSgbkNFe2DKmAAI
 
 {
-  "user": "62d1e9073bfc6f8cbe84dca4",
+  "user": "62d47a95fefe8e1cce618bd6",
   "title":"Things people should be eating",
   "author":"Namas Swaski",
   "url":"http://www.greenfood.com",
+  "comments": [],
   "likes": 0
 }
 
 ###
 POST http://localhost:3003/api/blogs/ HTTP/1.1
 Content-type: application/json
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJvb3QiLCJpZCI6IjYyZDFlOTA3M2JmYzZmOGNiZTg0ZGNhNCIsImlhdCI6MTY1NzkyNTE4NywiZXhwIjoxNjU3OTI4Nzg3fQ.lGkWGXsl88zCTVl8jZo43k2npbddGBsrwvs2uek3cBQ
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImhlbGxhcyIsImlkIjoiNjJkNDdhOTVmZWZlOGUxY2NlNjE4YmQ5IiwiaWF0IjoxNjY0ODMxOTExLCJleHAiOjE2NjQ4MzU1MTF9.g1_xmpi5LepeLjZnBu7lnpR2yhUt-5BWCeBaSCscSNY
 
 {
-  "user": "62bcc5fd5f5f5bdf01007b92",
-  "title":"Things Matti don't know as of 2018",
+  "user": "62d47a95fefe8e1cce618bd9",
+  "title":"Top 2018 sandwiches",
   "author":"Joey Tribianni",
   "url":"http://www.whatdoyouknow111.html",
+  "comments": [],
   "likes": 0
 }
 
 ###
-DELETE http://localhost:3003/api/blogs/62bcb7b4f4ce63da4a247997 HTTP/1.1
+POST http://localhost:3003/api/blogs/ HTTP/1.1
 Content-type: application/json
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJvb3QiLCJpZCI6IjYyZDFlOTA3M2JmYzZmOGNiZTg0ZGNhNCIsImlhdCI6MTY1NzkyNTE4NywiZXhwIjoxNjU3OTI4Nzg3fQ.lGkWGXsl88zCTVl8jZo43k2npbddGBsrwvs2uek3cBQ
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJvb3QiLCJpZCI6IjYzMzVmMWZmZDQ2ZTk3YmExYjc2ZmY1OCIsImlhdCI6MTY2NDgzMzQ1MiwiZXhwIjoxNjY0ODM3MDUyfQ.x2QOyAhj8kIZbkS0QTT9K5vo36wQ7vwjLCMoaRShk3M
 
 {
-  "user": "62bcc5fd5f5f5bdf01007b92",
-  "title":"Things Matti don't know as of 2018",
-  "author":"Matti Abramov",
-  "url":"http://www.whatdoyouknow111.html",
+  "user": "6335f1ffd46e97ba1b76ff58",
+  "title":"How to get started in development?",
+  "author":"Molly Polly",
+  "url":"www.onlinedu.com",
+  "comments": ["I agree" , "100% accurate and I got a job"],
   "likes": 0
 }
+
+###
+POST http://localhost:3003/api/blogs/ HTTP/1.1
+Content-type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJvb3QiLCJpZCI6IjYzMzVmMWZmZDQ2ZTk3YmExYjc2ZmY1OCIsImlhdCI6MTY2NDgzMzQ1MiwiZXhwIjoxNjY0ODM3MDUyfQ.x2QOyAhj8kIZbkS0QTT9K5vo36wQ7vwjLCMoaRShk3M
+
+{
+  "user": "6335f1ffd46e97ba1b76ff58",
+  "title":"COVID: Yay or nay?",
+  "author":"Mythbuster",
+  "url":"www.realpolls.com",
+  "comments": ["Ridiculous post"],
+  "likes": 0
+}
+
+###
+PUT http://localhost:3003/api/blogs/633b5211f1e23b10a6159319 HTTP/1.1
+Content-type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJvb3QiLCJpZCI6IjYzMzVmMWZmZDQ2ZTk3YmExYjc2ZmY1OCIsImlhdCI6MTY2NDgzMzQ1MiwiZXhwIjoxNjY0ODM3MDUyfQ.x2QOyAhj8kIZbkS0QTT9K5vo36wQ7vwjLCMoaRShk3M
+
+{
+  "likes": 1
+}
+
+###
+POST http://localhost:3003/api/blogs/633b5211f1e23b10a6159319/comments HTTP/1.1
+Content-type: application/json
+
+{
+  "comments": "Got me motivated",
+}
+
 

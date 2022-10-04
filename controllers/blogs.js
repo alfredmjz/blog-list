@@ -25,6 +25,7 @@ blogsRouter.post("/", async (request, response, next) => {
 			title: request.body.title,
 			author: request.body.author,
 			url: request.body.url,
+			comments: request.body.comments,
 			likes: request.body.likes,
 		});
 
@@ -36,6 +37,25 @@ blogsRouter.post("/", async (request, response, next) => {
 		await user.save();
 
 		response.status(201).json(result);
+	} catch (err) {
+		next(err);
+	}
+});
+
+blogsRouter.put("/:id/comments", async (request, response, next) => {
+	try {
+		const thisBlog = await Blog.findById(request.params.id);
+		const newComment = [...thisBlog.comments, request.body.comments];
+		const updatedBlog = {
+			title: thisBlog.title,
+			author: thisBlog.author,
+			url: thisBlog.url,
+			comments: newComment,
+			likes: request.body.likes || thisBlog.likes,
+		};
+		await Blog.updateOne(thisBlog, updatedBlog);
+		const result = { ...updatedBlog, id: thisBlog.id };
+		response.status(200).json(result);
 	} catch (err) {
 		next(err);
 	}
@@ -70,14 +90,15 @@ blogsRouter.put("/:id", async (request, response, next) => {
 
 		const thisBlog = await Blog.findById(request.params.id);
 		const updatedBlog = {
-			user: request.params.id,
-			title: request.body.title,
-			author: request.body.author,
-			url: request.body.url,
+			title: thisBlog.title,
+			author: thisBlog.author,
+			url: thisBlog.url,
+			comments: thisBlog.comments,
 			likes: request.body.likes || thisBlog.likes,
 		};
 		await Blog.updateOne(thisBlog, updatedBlog);
-		response.status(200).json(updatedBlog);
+		const result = { ...updatedBlog, id: thisBlog.id };
+		response.status(200).json(result);
 	} catch (err) {
 		next(err);
 	}

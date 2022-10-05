@@ -1,4 +1,5 @@
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 const usersRouter = require("express").Router();
 const User = require("../models/user");
 
@@ -11,7 +12,7 @@ usersRouter.get("/", async (request, response, next) => {
 	}
 });
 
-usersRouter.post("/", async (request, response, next) => {
+usersRouter.post("/register", async (request, response, next) => {
 	try {
 		const { username, name, password } = request.body;
 		if (!username || !password) {
@@ -39,7 +40,13 @@ usersRouter.post("/", async (request, response, next) => {
 			passwordHash,
 		});
 		const savedUser = await user.save();
-		response.status(201).json(savedUser);
+		const userForToken = {
+			username: savedUser.username,
+			id: savedUser._id,
+		};
+		const token = jwt.sign(userForToken, process.env.SECRET, { expiresIn: 60 * 60 });
+
+		response.status(201).json({ loginUser: { token, username, name }, savedUser });
 	} catch (err) {
 		next(err);
 	}
